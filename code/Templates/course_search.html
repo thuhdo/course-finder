@@ -1,0 +1,106 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/index.css') }}"/>
+	<style>
+		table {
+		  border-spacing: 0;
+		  width: 100%;
+		  border: 1px solid #ddd;
+		}
+		
+		th, td {
+		  text-align: left;
+		  padding: 16px;
+		}
+		
+		tr:nth-child(even) {
+		  background-color: #f2f2f2
+		}
+	</style>
+</head>
+
+<body>
+	<!-- <canvas id="myCanvas"></canvas> -->
+		
+	<script type="text/javascript" src="/static/script.js"></script>
+
+	<header>
+		<a href="/" class="logo">Course Finder</a>
+	</header>
+
+	<section class="banner"></section>
+	<script type="text/javascript">
+		window.addEventListener("scroll", function(){
+			var header = document.querySelector("header");
+			header.classList.toggle("sticky", window.scrollY > 0);
+		})
+	</script>
+	<br>
+
+
+	<form action="/search_course" method="POST">
+		<table id = "user_input" class = "table no">
+			<tr>
+				<th>Subject(*)</th>
+				<th>Course Number</th>
+			</tr>
+			<tr>	
+				<td><input type="text" name = "subject"     		placeholder="e.g., MAT" required/></td>
+				<td><input type="text" name = "course_num" placeholder="e.g., 109" ><input type="submit" value = Search /></td>	
+			</tr>
+		</table>
+	</form>
+
+	{% if(courses) %}
+		<h2>Results</h2>
+		<table id = "View Courses">
+			<tr>
+				<th>Module</th>
+				<th>Department</th>
+				<th>Subject</th>
+				<th>Course Number</th>
+				<th>CRN</th>
+				<th>Course Title</th>
+				<th>Online Only</th>
+				<th>Meet Type</th>
+				<th>Instructor Last Name</th>
+				<th>First Name</th>
+				<th>Start Time</th>
+				<th>End Time</th>
+				<th>Mon</th>
+				<th>Tue</th>
+				<th>Wed</th>
+				<th>Thu</th>
+				<th>Fri</th>
+				<th>Credits</th>
+					
+			</tr>
+		{% for line in courses %}
+			<tr>
+				<td>{{line['module']}}</td>
+				<td>{{line['dept']}}</td>
+				<td>{{line['subject']}}</td>
+				<td>{{line['num']}}</td>
+				<td>{{line['crn']}}</td>
+				<td>{{line['title']}}</td>
+				<td>{% if(line['online_only'] == 1) %} Yes {% else %} No {% endif %}</td>
+				<td>{{line['type']}}</td>
+				<td>{{line['instr_last']}}</td>
+				<td>{{line['instr_first']}}</td>
+				<td>{{line['start_time']}}</td>
+				<td>{{line['end_time']}}</td>
+				<td>{% if(line['mon'] == 1) %} Yes {% else %} No {% endif %}</td>
+				<td>{% if(line['tue'] == 1) %} Yes {% else %} No {% endif %}</td>
+				<td>{% if(line['wed'] == 1) %} Yes {% else %} No {% endif %}</td>
+				<td>{% if(line['thu'] == 1) %} Yes {% else %} No {% endif %}</td>
+				<td>{% if(line['fri'] == 1) %} Yes {% else %} No {% endif %}</td>
+				<td>{{line['credits']}}</td>
+			</tr>
+		{% endfor %}
+		</table>
+	{% endif %}
+
+
+</body>
+</html>

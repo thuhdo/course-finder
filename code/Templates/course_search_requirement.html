@@ -1,0 +1,112 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/index.css') }}"/>
+	<style>
+		table {
+		  border-spacing: 0;
+		  width: 100%;
+		  border: 1px solid #ddd;
+		}
+		
+		th, td {
+		  text-align: left;
+		  padding: 16px;
+		}
+		
+		tr:nth-child(even) {
+		  background-color: #f2f2f2
+		}
+	</style>
+</head>
+
+<body>
+	<!-- <canvas id="myCanvas"></canvas> -->
+		
+	<script type="text/javascript" src="/static/script.js"></script>
+
+	<header>
+		<a href="/" class="logo">Course Finder</a>
+	</header>
+
+	<section class="banner"></section>
+	<script type="text/javascript">
+		window.addEventListener("scroll", function(){
+			var header = document.querySelector("header");
+			header.classList.toggle("sticky", window.scrollY > 0);
+		})
+	</script>
+	<br>
+
+
+	<form class="form-inline" method="POST" action="/search_requirement">
+		<div class="form-group">
+			<div class="input-group">
+				<span class="input-group-addon">Courses that fulfill</span>
+				<select name="search_req" class="selectpicker form-control">
+					<option value="natl">Natural Science w/ Lab</option>
+  					<option value="nsp">Natural Science in Perspective</option>
+  					<option value="non-western">Non-Western Cultures</option>
+  					<option value="soc-sci">Social Sciences</option>
+  					<option value="arts">Arts</option>
+  					<option value="conn">Connections</option>
+  					<option value="human">Humanities</option>
+  					<option value="lang">Languages</option>
+
+           		</select>
+    		</div>
+    	<button type="submit" class="btn btn-default">Find</button>
+  		</div>
+	</form>
+
+	{% if(courses) %}
+		<h2>Results</h2>
+		<table id = "View Courses">
+			<tr>
+				<th>Module</th>
+				<th>Department</th>
+				<th>Subject</th>
+				<th>Course Number</th>
+				<th>CRN</th>
+				<th>Course Title</th>
+				<th>Online Only</th>
+				<th>Meet Type</th>
+				<th>Instructor Last Name</th>
+				<th>First Name</th>
+				<th>Start Time</th>
+				<th>End Time</th>
+				<th>Mon</th>
+				<th>Tue</th>
+				<th>Wed</th>
+				<th>Thu</th>
+				<th>Fri</th>
+				<th>Credits</th>
+					
+			</tr>
+		{% for line in courses %}
+			<tr>
+				<td>{{line['module']}}</td>
+				<td>{{line['dept']}}</td>
+				<td>{{line['subject']}}</td>
+				<td>{{line['num']}}</td>
+				<td>{{line['crn']}}</td>
+				<td>{{line['title']}}</td>
+				<td>{% if(line['online_only'] == 1) %} Yes {% else %} No {% endif %}</td>
+				<td>{{line['type']}}</td>
+				<td>{{line['instr_last']}}</td>
+				<td>{{line['instr_first']}}</td>
+				<td>{{line['start_time']}}</td>
+				<td>{{line['end_time']}}</td>
+				<td>{% if(line['mon'] == 1) %} Yes {% else %} No {% endif %}</td>
+				<td>{% if(line['tue'] == 1) %} Yes {% else %} No {% endif %}</td>
+				<td>{% if(line['wed'] == 1) %} Yes {% else %} No {% endif %}</td>
+				<td>{% if(line['thu'] == 1) %} Yes {% else %} No {% endif %}</td>
+				<td>{% if(line['fri'] == 1) %} Yes {% else %} No {% endif %}</td>
+				<td>{{line['credits']}}</td>
+			</tr>
+		{% endfor %}
+		</table>
+	{% endif %}
+	
+</body>
+</html>

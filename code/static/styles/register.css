@@ -1,0 +1,57 @@
+body{
+	background-image: url(sky.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#register-box{
+	background-color: rgba(0,0,0,0.5);
+	border-radius: 13px;
+/*	text-align: center;*/
+	margin: 0px auto;
+	margin-top: 200px;
+	width: 55%;
+	height: 1700px
+}
+
+#register-box h1{
+	padding-top: 50px;
+	color: white;
+	font-size: 45px;
+	text-align: center;
+}
+
+#register-box .input-box{
+	margin-top: 30px;
+	padding-left: 200px;
+}
+
+label{
+	color: white;
+	font-size: 20px;
+	font-style: italic;
+}
+
+#register-box .input-box input{
+	/*border: white 2px solid;*/
+	width: 450px;
+	height: 45px;
+	border-radius: 10px;
+	background: none;
+	border-bottom: white 2px solid;
+	outline: none;
+	color: white;
+	font-size: 20px;
+}
+
+#register-box button{
+	margin-top: 100px;
+	margin-left: 190px;
+	width: 150px;
+	border-radius: 20px;
+	outline: none;
+	height: 40px;
+	font-size: 17px;
+	font-style: oblique;
+	font-weight: 500;
+}
