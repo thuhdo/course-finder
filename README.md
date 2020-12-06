@@ -23,18 +23,18 @@ A centralized web application where students have multiple searching options to 
 ### Homepage
 Presents a dropdown menu from which the user can specify their searching criteria. The user can navigate to the homepage by clicking on the page title "Course Finder" presented in all child pages.
 
-<img src="https://i.imgur.com/N1davQL.png" width=400>
+<img src="https://i.imgur.com/N1davQL.png" width=600>
 
 ### Search pages
 All of the search pages except for the General Education Requirements one provide the user with fields to input their search values, some of which require the user to input a non-empty string before proceeding, some don’t. All fields have placeholder texts that suggest reasonable values to the user.
 
-<img src="https://i.imgur.com/S1GUkxZ.png" width=300>
+<img src="https://i.imgur.com/S1GUkxZ.png" width=600>
 
 #### General Education Requirements page
 
 For the General Education Requirements page, the web presents the user with a dropdown menu instead of text fields due to their complex/nonconforming names and the limited number of options. 
 
-<img src="https://i.imgur.com/YGruSMK.png" width=350>
+<img src="https://i.imgur.com/YGruSMK.png" width=600>
 
 
 
