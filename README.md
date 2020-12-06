@@ -1,6 +1,6 @@
 # Course Finder
 
-A simple web application that provides multiple course search options for students at Franklin & Marshall College, reducing the need to scroll back and forth and manually search for words in a PDF.
+A simple web application that provides multiple course search options for students at Franklin & Marshall College, reducing the need to scroll back and forth and manually search for words in a PDF. Developed as the final project for Intro to Database course at F&M.
 
 <img src="https://i.imgur.com/yPSonyu.png" width=600>
 
